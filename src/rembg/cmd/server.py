@@ -13,7 +13,7 @@ from ..bg import remove
 app = Flask(__name__)
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/api/removebg", methods=["GET", "POST"])
 def index():
     file_content = ""
 
