@@ -1,0 +1,27 @@
+[Unit]
+Description=Background removing service for images
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/root/rembg
+Environment="PATH=/root/rembg/venv/bin"
+ExecStart=/root/rembg/venv/bin/gunicorn --workers 5 --bind unix:rembg.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+
+
+
+
+
+
+
+
+
+
