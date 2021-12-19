@@ -10,7 +10,7 @@ with open("requirements.txt") as f:
     requireds = f.read().splitlines()
 
 setup(
-    name="rembg",
+    name="kyrptl_api_rembg",
     version="1.0.28",
     description="Remove image background",
     long_description=long_description,
@@ -29,8 +29,8 @@ setup(
     install_requires=requireds,
     entry_points={
         "console_scripts": [
-            "rembg=rembg.cmd.cli:main",
-            "rembg-server=rembg.cmd.server:main",
+            "kyrptl_api_rembg=kyrptl_api_rembg.cmd.cli:main",
+            "kyrptl_api_rembg-server=kyrptl_api_rembg.cmd.server:main",
         ],
     },
 )

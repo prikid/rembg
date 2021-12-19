@@ -65,24 +65,24 @@ pip install torch==1.7.1+cpu torchvision==0.8.2+cpu -f https://download.pytorch.
 Install it from pypi
 
 ```bash
-pip install rembg
+pip install kyrptl_api_rembg
 ```
 
 ### Usage as a cli
 
 Remove the background from a remote image
 ```bash
-curl -s http://input.png | rembg > output.png
+curl -s http://input.png | kyrptl_api_rembg > output.png
 ```
 
 Remove the background from a local file
 ```bash
-rembg -o path/to/output.png path/to/input.png
+kyrptl_api_rembg -o path/to/output.png path/to/input.png
 ```
 
 Remove the background from all images in a folder
 ```bash
-rembg -p path/to/input path/to/output
+kyrptl_api_rembg -p path/to/input path/to/output
 ```
 
 ### Add a custom model
@@ -90,14 +90,14 @@ rembg -p path/to/input path/to/output
 Copy the `custom-model.pth` file to `~/.u2net` and run:
 
 ```bash
-curl -s http://input.png | rembg -m custom-model > output.png
+curl -s http://input.png | kyrptl_api_rembg -m custom-model > output.png
 ```
 
 ### Usage as a server
 
 Start the server
 ```bash
-rembg-server
+kyrptl_api_rembg-server
 ```
 
 Open your browser to
@@ -168,7 +168,7 @@ curl -s http://input.png | docker run -i -v ~/.u2net:/root/.u2net danielgatis/re
 
 Sometimes it is possible to achieve better results by turning on alpha matting. Example:
 ```bash
-curl -s http://input.png | rembg -a -ae 15 > output.png
+curl -s http://input.png | kyrptl_api_rembg -a -ae 15 > output.png
 ```
 
 <table>
