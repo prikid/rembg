@@ -12,4 +12,3 @@ pymatting>=1.1.1
 filetype>=1.0.7
 gunicorn
 matplotlib
-requests

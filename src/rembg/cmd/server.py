@@ -13,8 +13,13 @@ from ..bg import remove
 app = Flask(__name__)
 
 
-@app.route("/api/removebg", methods=["GET", "POST"])
+@app.route("/")
 def index():
+    return "<h1>Welcome to the remove background app!</h1>"
+
+
+@app.route("/api/removebg", methods=["GET", "POST"])
+def removebg():
     file_content = ""
 
     if request.method == "POST":
@@ -57,8 +62,8 @@ def index():
 
     if model not in model_choices:
         return {
-            "error": f"invalid query param 'model'. Available options are {model_choices}"
-        }, 400
+                   "error": f"invalid query param 'model'. Available options are {model_choices}"
+               }, 400
 
     try:
         return send_file(
