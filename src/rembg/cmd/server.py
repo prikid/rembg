@@ -25,7 +25,7 @@ def index():
 def removebg():
     file_content = ""
 
-    if not (request.headers.get('X-Api-Key') in ALLOWED_APIS or request.args.get('apikey') in ALLOWED_APIS):
+    if not (request.headers.get('X-Api-Key') in ALLOWED_APIS or request.values.get('apikey') in ALLOWED_APIS):
         return {"error": "Forbidden"}, 403
 
     if request.method == "POST":
