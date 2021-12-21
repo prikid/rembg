@@ -2,6 +2,7 @@ import argparse
 import glob
 import os
 from io import BytesIO
+from pathlib import Path
 from urllib.parse import quote, unquote_plus
 from urllib.request import urlopen
 
@@ -12,6 +13,8 @@ from ..bg import remove
 
 app = Flask(__name__)
 
+ALLOWED_APIS = Path('allowed_api_keys.txt').read_text().splitlines()
+
 
 @app.route("/")
 def index():
@@ -21,6 +24,9 @@ def index():
 @app.route("/api/removebg", methods=["GET", "POST"])
 def removebg():
     file_content = ""
+
+    if not (request.headers.get('X-Api-Key') in ALLOWED_APIS or request.args.get('apikey') in ALLOWED_APIS):
+        return {"error": "Forbidden"}, 403
 
     if request.method == "POST":
         if "file" not in request.files:

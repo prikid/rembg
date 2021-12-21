@@ -18,3 +18,4 @@ __pycache__/
 .mypy_cache
 /.idea/
 /output/
+/test_script.zip
